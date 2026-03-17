@@ -15,41 +15,33 @@ exports.handler = async (event) => {
     return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
     return {
       statusCode: 500,
       headers: { 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({ error: 'GEMINI_API_KEY not configured in Netlify environment variables' })
+      body: JSON.stringify({ error: 'GROQ_API_KEY not configured in Netlify environment variables' })
     };
   }
 
   try {
     const { question, system } = JSON.parse(event.body);
 
-    const geminiBody = {
-      system_instruction: {
-        parts: [{ text: system }]
-      },
-      contents: [
-        {
-          role: 'user',
-          parts: [{ text: question }]
-        }
-      ],
-      generationConfig: {
-        temperature: 0.8,
-        maxOutputTokens: 2500,
-        responseMimeType: 'application/json'
-      }
-    };
-
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-    const response = await fetch(url, {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(geminiBody)
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        model: 'llama-3.1-8b-instant',
+        messages: [
+          { role: 'system', content: system },
+          { role: 'user', content: question }
+        ],
+        temperature: 0.8,
+        max_tokens: 2500
+      })
     });
 
     const data = await response.json();
@@ -58,11 +50,11 @@ exports.handler = async (event) => {
       return {
         statusCode: response.status,
         headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ error: data.error?.message || 'Gemini API error' })
+        body: JSON.stringify({ error: data.error?.message || 'Groq API error' })
       };
     }
 
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    const text = data.choices?.[0]?.message?.content || '';
 
     return {
       statusCode: 200,
