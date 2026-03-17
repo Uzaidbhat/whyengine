@@ -33,9 +33,6 @@
   --redborder:#FECACA;
   --reddark:#991B1B;
   --redtext:#7F1D1D;
-  --blue:#1D4ED8;
-  --bluebg:#EFF6FF;
-  --blueborder:#BFDBFE;
   --serif:'Playfair Display',Georgia,serif;
   --sans:'DM Sans',system-ui,sans-serif;
   --shadow:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(0,0,0,.04);
@@ -47,381 +44,186 @@ h1,h2,h3,h4{font-family:var(--serif)}
 input,button,select,textarea{font-family:var(--sans)}
 button{cursor:pointer}
 a{text-decoration:none;color:inherit}
-
-/* ── Scrollbar ── */
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--lighter);border-radius:3px}
 
-/* ── Animations ── */
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 @keyframes shimmer{0%{background-position:-200px 0}100%{background-position:calc(200px + 100%) 0}}
-
 .fade-up{animation:fadeUp .4s ease both}
 .fade-in{animation:fadeIn .3s ease both}
 
-/* ── Nav ── */
-#nav{
-  position:sticky;top:0;z-index:200;
-  background:rgba(253,250,245,.92);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--borderlight);
-  padding:0 24px;
-  height:60px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-logo{
-  display:flex;align-items:baseline;gap:1px;cursor:pointer;user-select:none;
-  text-decoration:none;
-}
+/* Nav */
+#nav{position:sticky;top:0;z-index:200;background:rgba(253,250,245,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--borderlight);padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:baseline;gap:1px;cursor:pointer;user-select:none;}
 .nav-logo .why{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--amber)}
 .nav-logo .engine{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--text)}
 .nav-links{display:flex;align-items:center;gap:4px}
-.nav-link{
-  padding:6px 12px;border-radius:8px;font-size:13.5px;color:var(--muted);
-  cursor:pointer;transition:all .15s;border:none;background:none;font-family:var(--sans);
-}
+.nav-link{padding:6px 12px;border-radius:8px;font-size:13.5px;color:var(--muted);cursor:pointer;transition:all .15s;border:none;background:none;font-family:var(--sans);}
 .nav-link:hover{background:var(--bgsection);color:var(--text)}
-.nav-link.active{color:var(--amberdark);background:var(--amberbg)}
-.nav-cta{
-  padding:7px 16px;background:var(--amber);color:white;border:none;
-  border-radius:8px;font-size:13.5px;font-weight:600;transition:all .15s;
-}
-.nav-cta:hover{background:var(--ambermid);transform:translateY(-1px)}
-.nav-search-mini{
-  display:flex;align-items:center;gap:8px;
-  background:white;border:1px solid var(--border);border-radius:8px;
-  padding:6px 12px;font-size:13.5px;color:var(--light);cursor:pointer;
-  transition:border-color .15s;
-}
+.nav-search-mini{display:flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:13.5px;color:var(--light);cursor:pointer;transition:border-color .15s;}
 .nav-search-mini:hover{border-color:var(--amber)}
-.hamburger{display:none;background:none;border:none;padding:4px;cursor:pointer}
-@media(max-width:640px){
-  .nav-links .nav-link:not(.nav-cta){display:none}
-  .nav-links .nav-search-mini{display:none}
-  .hamburger{display:block}
-}
+.nav-cta{padding:7px 16px;background:var(--amber);color:white;border:none;border-radius:8px;font-size:13.5px;font-weight:600;transition:all .15s;}
+.nav-cta:hover{background:var(--ambermid)}
 
-/* ── Pages ── */
+/* Pages */
 .page{display:none;min-height:calc(100vh - 60px)}
 .page.active{display:block}
 
-/* ── Hero ── */
-.hero{
-  padding:80px 24px 72px;
-  text-align:center;
-  background:linear-gradient(180deg,var(--bgwarm) 0%,var(--bg) 100%);
-  border-bottom:1px solid var(--borderlight);
-}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--bgamber);border:1px solid var(--amberborder);
-  border-radius:20px;padding:6px 16px;margin-bottom:28px;
-  font-size:13px;color:var(--amberdark);font-weight:500;
-}
-.hero h1{
-  font-family:var(--serif);font-size:clamp(36px,6vw,64px);font-weight:700;
-  color:var(--text);line-height:1.12;margin-bottom:18px;letter-spacing:-.5px;
-}
+/* Hero */
+.hero{padding:80px 24px 72px;text-align:center;background:linear-gradient(180deg,var(--bgwarm) 0%,var(--bg) 100%);border-bottom:1px solid var(--borderlight);}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bgamber);border:1px solid var(--amberborder);border-radius:20px;padding:6px 16px;margin-bottom:28px;font-size:13px;color:var(--amberdark);font-weight:500;}
+.hero h1{font-family:var(--serif);font-size:clamp(36px,6vw,64px);font-weight:700;color:var(--text);line-height:1.12;margin-bottom:18px;letter-spacing:-.5px;}
 .hero h1 em{color:var(--amber);font-style:italic}
-.hero p{
-  font-size:clamp(15px,2vw,18px);color:var(--muted);line-height:1.7;
-  margin:0 auto 44px;max-width:520px;
-}
+.hero p{font-size:clamp(15px,2vw,18px);color:var(--muted);line-height:1.7;margin:0 auto 44px;max-width:520px;}
 .hero p strong{color:var(--text)}
 
-/* ── Main search ── */
-.search-wrap{
-  max-width:640px;margin:0 auto 22px;
-  border:2px solid var(--amber);border-radius:14px;
-  background:white;overflow:hidden;
-  box-shadow:0 8px 32px rgba(217,119,6,.15);
-}
-.search-wrap input{
-  width:100%;border:none;outline:none;
-  padding:17px 22px;font-size:16px;color:var(--text);
-  background:transparent;
-}
+/* Search */
+.search-wrap{max-width:640px;margin:0 auto 22px;border:2px solid var(--amber);border-radius:14px;background:white;overflow:hidden;box-shadow:0 8px 32px rgba(217,119,6,.15);}
+.search-wrap input{width:100%;border:none;outline:none;padding:17px 22px;font-size:16px;color:var(--text);background:transparent;}
 .search-wrap input::placeholder{color:var(--light)}
-.search-row{
-  display:flex;align-items:center;border-top:1px solid var(--borderlight);
-  padding:10px 12px;gap:8px;
-}
-.search-submit{
-  margin-left:auto;padding:9px 20px;background:var(--amber);color:white;
-  border:none;border-radius:8px;font-size:14px;font-weight:600;
-  transition:all .15s;white-space:nowrap;
-}
+.search-row{display:flex;align-items:center;border-top:1px solid var(--borderlight);padding:10px 12px;gap:8px;}
+.search-submit{margin-left:auto;padding:9px 20px;background:var(--amber);color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;transition:all .15s;white-space:nowrap;}
 .search-submit:hover{background:var(--ambermid);transform:translateY(-1px)}
 .search-submit:disabled{background:var(--lighter);cursor:default;transform:none}
-.search-cat{
-  padding:5px 12px;border:1px solid var(--border);border-radius:14px;
-  font-size:12.5px;color:var(--muted);background:var(--bg);
-  transition:all .15s;
-}
+.search-cat{padding:5px 12px;border:1px solid var(--border);border-radius:14px;font-size:12.5px;color:var(--muted);background:var(--bg);transition:all .15s;border:1px solid var(--border);}
 .search-cat:hover,.search-cat.active{border-color:var(--amber);color:var(--amberdark);background:var(--amberbg)}
 
-/* ── Example chips ── */
+/* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:4px}
-.chip{
-  padding:7px 15px;border:1px solid var(--border);border-radius:18px;
-  background:white;font-size:13px;color:var(--muted);cursor:pointer;
-  transition:all .15s;font-family:var(--sans);
-}
+.chip{padding:7px 15px;border:1px solid var(--border);border-radius:18px;background:white;font-size:13px;color:var(--muted);cursor:pointer;transition:all .15s;font-family:var(--sans);}
 .chip:hover{border-color:var(--amber);color:var(--amberdark);transform:translateY(-1px)}
 
-/* ── Section headers ── */
-.section-header{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:24px;
-}
-.section-title{
-  font-family:var(--serif);font-size:22px;font-weight:600;color:var(--text)
-}
+/* Section */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+.section-title{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--text)}
 .section-link{font-size:13.5px;color:var(--amber);cursor:pointer;font-weight:500}
 .section-link:hover{color:var(--amberdark)}
 
-/* ── Category pills ── */
+/* Cat pills */
 .cat-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
-.cat-pill{
-  padding:8px 18px;border:1.5px solid var(--border);border-radius:20px;
-  font-size:13.5px;color:var(--muted);cursor:pointer;transition:all .15s;
-  background:white;font-family:var(--sans);
-}
+.cat-pill{padding:8px 18px;border:1.5px solid var(--border);border-radius:20px;font-size:13.5px;color:var(--muted);cursor:pointer;transition:all .15s;background:white;font-family:var(--sans);}
 .cat-pill:hover{border-color:var(--amber);color:var(--amberdark)}
 .cat-pill.active{border-color:var(--amber);color:var(--amberdark);background:var(--amberbg);font-weight:500}
 
-/* ── Why Cards ── */
+/* Why cards */
 .why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.why-card{
-  background:white;border:1px solid var(--border);border-radius:14px;
-  padding:20px 22px;cursor:pointer;transition:all .2s;
-  display:flex;flex-direction:column;gap:10px;
-}
+.why-card{background:white;border:1px solid var(--border);border-radius:14px;padding:20px 22px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;gap:10px;}
 .why-card:hover{border-color:var(--amber);box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.why-card-cat{
-  display:inline-flex;padding:3px 10px;border-radius:10px;
-  font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;
-  background:var(--amberbg);color:var(--amberdark);width:fit-content;
-}
+.why-card-cat{display:inline-flex;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;background:var(--amberbg);color:var(--amberdark);width:fit-content;}
 .why-card-q{font-family:var(--serif);font-size:17px;font-weight:600;line-height:1.35;color:var(--text)}
 .why-card-preview{font-size:13.5px;color:var(--muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .why-card-meta{display:flex;align-items:center;gap:10px;margin-top:4px}
 .why-card-badge{font-size:11.5px;color:var(--light);display:flex;align-items:center;gap:4px}
 .why-card-arrow{margin-left:auto;color:var(--amber);font-size:16px;opacity:.7}
 
-/* ── Empty state ── */
-.empty-state{
-  text-align:center;padding:64px 24px;
-  border:2px dashed var(--borderlight);border-radius:16px;
-  background:var(--bgsection);
-}
+/* Empty */
+.empty-state{text-align:center;padding:64px 24px;border:2px dashed var(--borderlight);border-radius:16px;background:var(--bgsection);}
 .empty-icon{font-size:40px;margin-bottom:12px}
 .empty-title{font-family:var(--serif);font-size:20px;color:var(--text);margin-bottom:8px}
 .empty-sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:20px}
 
-/* ── Loading ── */
-#loading-page{
-  min-height:calc(100vh - 60px);
-  display:none;flex-direction:column;align-items:center;justify-content:center;
-  padding:40px 24px;
-}
+/* Loading */
+#loading-page{min-height:calc(100vh - 60px);display:none;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;}
 #loading-page.active{display:flex}
-.spinner{
-  width:52px;height:52px;border-radius:50%;
-  border:3px solid var(--amberborder);border-top-color:var(--amber);
-  animation:spin 1s linear infinite;margin-bottom:28px;
-}
+.spinner{width:52px;height:52px;border-radius:50%;border:3px solid var(--amberborder);border-top-color:var(--amber);animation:spin 1s linear infinite;margin-bottom:28px;}
 .loading-steps{display:flex;flex-direction:column;gap:12px;min-width:300px}
 .loading-step{display:flex;align-items:center;gap:12px;transition:opacity .4s}
 .loading-step.dim{opacity:.25}
-.step-dot{
-  width:24px;height:24px;border-radius:50%;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;color:white;transition:background .3s;
-}
+.step-dot{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;transition:background .3s;}
 .step-dot.done{background:#059669}
 .step-dot.active{background:var(--amber)}
 .step-dot.waiting{background:var(--borderlight);color:var(--light)}
 
-/* ── Result page ── */
-.result-hero{
-  background:var(--bgwarm);border-bottom:1px solid var(--borderlight);
-  padding:44px 24px 36px;
-}
-.result-label{
-  font-size:11.5px;color:var(--amber);font-weight:700;
-  text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;
-}
-.result-title{
-  font-family:var(--serif);font-size:clamp(26px,4vw,42px);font-weight:700;
-  color:var(--text);line-height:1.15;margin-bottom:8px;
-}
-.result-meta{
-  display:inline-flex;flex-wrap:wrap;gap:0;
-  background:white;border:1px solid var(--border);
-  border-radius:12px;overflow:hidden;margin-top:20px;
-}
+/* Result */
+.result-hero{background:var(--bgwarm);border-bottom:1px solid var(--borderlight);padding:44px 24px 36px;}
+.result-label{font-size:11.5px;color:var(--amber);font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px;}
+.result-title{font-family:var(--serif);font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--text);line-height:1.15;margin-bottom:8px;}
+.result-meta{display:inline-flex;flex-wrap:wrap;gap:0;background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:20px;}
 .result-meta-item{padding:12px 20px;display:flex;flex-direction:column;gap:3px}
 .result-meta-item+.result-meta-item{border-left:1px solid var(--borderlight)}
 .meta-label{font-size:10.5px;color:var(--light);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
 .meta-val{font-size:13.5px;color:var(--text);font-weight:500}
 
-/* ── Content sections ── */
+/* Content sections */
 .r-section{border-top:1px solid var(--borderlight);padding:44px 0}
 .r-section.alt{background:white}
 .r-section.warm{background:var(--bgwarm)}
 .r-inner{max-width:800px;margin:0 auto;padding:0 24px}
-.r-num{
-  width:28px;height:28px;border-radius:50%;flex-shrink:0;
-  background:var(--bgamber);color:var(--amberdark);
-  display:inline-flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:700;
-}
-.r-shead{
-  display:flex;align-items:center;gap:12px;margin-bottom:24px;
-}
+.r-num{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:var(--bgamber);color:var(--amberdark);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+.r-shead{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
 .r-shead h2{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--text)}
-.pull-quote{
-  border-left:4px solid var(--amber);padding-left:22px;margin-bottom:28px;
-}
-.pull-quote p{
-  font-family:var(--serif);font-size:19px;line-height:1.75;
-  color:var(--text2);font-style:italic;
-}
-.takeaway{
-  display:flex;align-items:flex-start;gap:12px;
-  padding:11px 16px;background:var(--amberbg);
-  border-radius:8px;border:1px solid var(--amberborder);margin-bottom:8px;
-}
+.pull-quote{border-left:4px solid var(--amber);padding-left:22px;margin-bottom:28px;}
+.pull-quote p{font-family:var(--serif);font-size:19px;line-height:1.75;color:var(--text2);font-style:italic;}
+.takeaway{display:flex;align-items:flex-start;gap:12px;padding:11px 16px;background:var(--amberbg);border-radius:8px;border:1px solid var(--amberborder);margin-bottom:8px;}
 .takeaway-arrow{color:var(--amber);font-weight:700;flex-shrink:0;margin-top:2px;font-size:15px}
 .takeaway p{font-size:14.5px;color:var(--amberdark);line-height:1.55}
-.review-card{
-  background:white;border:1px solid var(--border);border-radius:12px;
-  padding:20px 22px;margin-bottom:12px;transition:box-shadow .15s;
-}
+.review-card{background:white;border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:12px;transition:box-shadow .15s;}
 .review-card:hover{box-shadow:var(--shadow)}
-.review-quote{
-  font-family:var(--serif);font-size:17px;line-height:1.65;
-  color:var(--text);font-style:italic;margin-bottom:12px;
-}
+.review-quote{font-family:var(--serif);font-size:17px;line-height:1.65;color:var(--text);font-style:italic;margin-bottom:12px;}
 .review-source{font-size:13px;font-weight:600;color:var(--muted)}
-.review-annotation{
-  font-size:11.5px;color:var(--light);background:var(--bg);
-  border:1px solid var(--borderlight);border-radius:6px;
-  padding:2px 10px;margin-left:8px;
-}
-.outcome-card{
-  background:var(--bgwarm);border:1px solid var(--borderlight);
-  border-radius:12px;padding:20px 22px;height:100%;
-}
-.outcome-who{
-  font-size:11.5px;font-weight:700;color:var(--amber);
-  text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;
-}
+.review-annotation{font-size:11.5px;color:var(--light);background:var(--bg);border:1px solid var(--borderlight);border-radius:6px;padding:2px 10px;margin-left:8px;}
+.outcome-card{background:var(--bgwarm);border:1px solid var(--borderlight);border-radius:12px;padding:20px 22px;height:100%;}
+.outcome-who{font-size:11.5px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
 .outcome-story{font-size:14.5px;color:var(--text);line-height:1.65}
 .step-row{display:flex;gap:16px;align-items:flex-start;margin-bottom:14px}
-.step-num{
-  width:30px;height:30px;border-radius:50%;background:var(--amber);color:white;
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px;
-}
+.step-num{width:30px;height:30px;border-radius:50%;background:var(--amber);color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;margin-top:2px;}
 .step-text{font-size:15px;line-height:1.6;color:var(--text);padding-top:4px}
-.checklist-box{
-  background:var(--greenbg);border:1px solid var(--greenborder);
-  border-radius:12px;padding:20px 22px;
-}
-.checklist-box h3{
-  font-family:var(--serif);font-size:15.5px;color:var(--green);margin-bottom:14px;
-}
-.check-item{
-  display:flex;gap:10px;align-items:flex-start;
-  margin-bottom:10px;font-size:13.5px;color:var(--green);line-height:1.5;cursor:pointer;
-}
+.checklist-box{background:var(--greenbg);border:1px solid var(--greenborder);border-radius:12px;padding:20px 22px;}
+.checklist-box h3{font-family:var(--serif);font-size:15.5px;color:var(--green);margin-bottom:14px;}
+.check-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:13.5px;color:var(--green);line-height:1.5;cursor:pointer;}
 .check-item input{margin-top:3px;accent-color:var(--green)}
-.mistake-box{
-  background:var(--redbg);border:1px solid var(--redborder);
-  border-radius:12px;padding:20px 22px;
-}
-.mistake-box h3{
-  font-family:var(--serif);font-size:15.5px;color:var(--reddark);margin-bottom:14px;
-}
-.mistake-item{
-  display:flex;gap:10px;align-items:flex-start;
-  margin-bottom:10px;font-size:13.5px;color:var(--redtext);line-height:1.5;
-}
+.mistake-box{background:var(--redbg);border:1px solid var(--redborder);border-radius:12px;padding:20px 22px;}
+.mistake-box h3{font-family:var(--serif);font-size:15.5px;color:var(--reddark);margin-bottom:14px;}
+.mistake-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:13.5px;color:var(--redtext);line-height:1.5;}
 .mistake-x{flex-shrink:0;margin-top:2px;font-weight:700}
-.when-card{
-  padding:16px 18px;background:var(--bg);border:1px solid var(--border);
-  border-radius:10px;
-}
+.when-card{padding:16px 18px;background:var(--bg);border:1px solid var(--border);border-radius:10px;}
 .when-scenario{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
 .when-eg{font-size:13px;color:var(--muted);line-height:1.5}
-.change-row{
-  display:flex;align-items:center;gap:14px;
-  padding:13px 18px;background:white;border:1px solid var(--borderlight);
-  border-radius:10px;margin-bottom:8px;transition:border-color .15s;
-}
+.change-row{display:flex;align-items:center;gap:14px;padding:13px 18px;background:white;border:1px solid var(--borderlight);border-radius:10px;margin-bottom:8px;transition:border-color .15s;}
 .change-row:hover{border-color:var(--amberborder)}
 .change-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0}
 .change-text{flex:1;font-size:14.5px;color:var(--text)}
-.change-time{
-  font-size:11.5px;color:var(--light);background:var(--bg);
-  border:1px solid var(--border);border-radius:6px;padding:3px 10px;white-space:nowrap;flex-shrink:0;
-}
-.verdict-box{
-  background:var(--bgamber);border-top:1px solid var(--amberborder);
-  padding:48px 24px;
-}
+.change-time{font-size:11.5px;color:var(--light);background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;white-space:nowrap;flex-shrink:0;}
+.verdict-box{background:var(--bgamber);border-top:1px solid var(--amberborder);padding:48px 24px;}
 .verdict-inner{max-width:700px;margin:0 auto;text-align:center}
-.verdict-inner p{
-  font-family:var(--serif);font-size:19px;line-height:1.8;
-  color:var(--amberdark);font-style:italic;
-}
-
-/* ── Related section ── */
-.related-section{
-  background:white;border-top:1px solid var(--borderlight);
-  padding:44px 24px;
-}
+.verdict-inner p{font-family:var(--serif);font-size:19px;line-height:1.8;color:var(--amberdark);font-style:italic;}
+.related-section{background:white;border-top:1px solid var(--borderlight);padding:44px 24px;}
 .related-inner{max-width:800px;margin:0 auto}
 .related-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px}
-.related-tag{
-  padding:9px 18px;border:1.5px solid var(--border);border-radius:20px;
-  font-size:14px;color:var(--muted);cursor:pointer;transition:all .15s;
-  background:var(--bg);font-family:var(--sans);
-}
+.related-tag{padding:9px 18px;border:1.5px solid var(--border);border-radius:20px;font-size:14px;color:var(--muted);cursor:pointer;transition:all .15s;background:var(--bg);font-family:var(--sans);}
 .related-tag:hover{border-color:var(--amber);color:var(--amberdark);transform:translateY(-1px)}
-.new-search-box{
-  background:var(--bgwarm);border:1px solid var(--border);
-  border-radius:14px;padding:24px;
-}
+.new-search-box{background:var(--bgwarm);border:1px solid var(--border);border-radius:14px;padding:24px;}
 .new-search-box h3{font-family:var(--serif);font-size:17px;color:var(--text);margin-bottom:14px}
-.new-search-row{
-  display:flex;border:1.5px solid var(--border);border-radius:10px;
-  overflow:hidden;background:white;
-}
-.new-search-row input{
-  flex:1;border:none;outline:none;padding:13px 17px;font-size:15px;
-  color:var(--text);background:transparent;
-}
-.new-search-row button{
-  padding:13px 20px;background:var(--amber);color:white;
-  border:none;font-size:14px;font-weight:600;transition:background .15s;
-}
+.new-search-row{display:flex;border:1.5px solid var(--border);border-radius:10px;overflow:hidden;background:white;}
+.new-search-row input{flex:1;border:none;outline:none;padding:13px 17px;font-size:15px;color:var(--text);background:transparent;}
+.new-search-row button{padding:13px 20px;background:var(--amber);color:white;border:none;font-size:14px;font-weight:600;transition:background .15s;}
 .new-search-row button:hover{background:var(--ambermid)}
 
-/* ── Footer ── */
-.site-footer{
-  background:var(--text);padding:36px 24px;text-align:center;
-}
-.footer-logo{
-  display:flex;align-items:baseline;gap:2px;
-  justify-content:center;margin-bottom:8px;
-}
+/* Library */
+.lib-hero{background:var(--bgwarm);border-bottom:1px solid var(--borderlight);padding:48px 24px 36px;}
+.lib-hero h1{font-family:var(--serif);font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--text);margin-bottom:10px;}
+.lib-hero p{font-size:15px;color:var(--muted);line-height:1.65}
+.lib-search{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;}
+.lib-search input{flex:1;min-width:200px;border:1.5px solid var(--border);border-radius:10px;padding:11px 16px;font-size:14.5px;color:var(--text);outline:none;background:white;transition:border-color .15s;}
+.lib-search input:focus{border-color:var(--amber)}
+.lib-count{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+
+/* Action bar */
+.action-bar{background:white;border-bottom:1px solid var(--borderlight);padding:10px 24px;display:flex;align-items:center;gap:12px;}
+.btn-back{display:flex;align-items:center;gap:6px;font-size:13.5px;color:var(--muted);background:none;border:none;cursor:pointer;padding:6px 10px;border-radius:8px;transition:all .15s;}
+.btn-back:hover{background:var(--bgsection);color:var(--text)}
+.btn-save{margin-left:auto;padding:7px 16px;background:white;border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;color:var(--muted);transition:all .15s;display:flex;align-items:center;gap:6px;}
+.btn-save:hover{border-color:var(--amber);color:var(--amberdark)}
+.btn-save.saved{border-color:var(--green);color:var(--green);background:var(--greenbg)}
+.btn-share{padding:7px 16px;background:var(--amber);border:none;border-radius:8px;color:white;font-size:13px;font-weight:600;transition:all .15s;display:flex;align-items:center;gap:6px;}
+.btn-share:hover{background:var(--ambermid)}
+
+/* Footer */
+.site-footer{background:var(--text);padding:36px 24px;text-align:center;}
+.footer-logo{display:flex;align-items:baseline;gap:2px;justify-content:center;margin-bottom:8px;}
 .footer-logo .why{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--amber)}
 .footer-logo .engine{font-family:var(--serif);font-size:20px;color:white}
 .footer-sub{font-size:12.5px;color:#78716C;margin-bottom:20px}
@@ -429,107 +231,41 @@ a{text-decoration:none;color:inherit}
 .footer-link{font-size:12.5px;color:#78716C;cursor:pointer;transition:color .15s}
 .footer-link:hover{color:var(--amber)}
 
-/* ── Library page ── */
-.lib-hero{
-  background:var(--bgwarm);border-bottom:1px solid var(--borderlight);
-  padding:48px 24px 36px;
-}
-.lib-hero h1{
-  font-family:var(--serif);font-size:clamp(28px,4vw,44px);font-weight:700;
-  color:var(--text);margin-bottom:10px;
-}
-.lib-hero p{font-size:15px;color:var(--muted);line-height:1.65}
-.lib-search{
-  display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;
-}
-.lib-search input{
-  flex:1;min-width:200px;border:1.5px solid var(--border);border-radius:10px;
-  padding:11px 16px;font-size:14.5px;color:var(--text);outline:none;
-  background:white;transition:border-color .15s;
-}
-.lib-search input:focus{border-color:var(--amber)}
-.lib-count{font-size:13.5px;color:var(--muted);margin-bottom:16px}
-
-/* ── Skeleton ── */
-.skel{
-  background:linear-gradient(90deg,var(--borderlight) 25%,var(--bg) 50%,var(--borderlight) 75%);
-  background-size:200px 100%;animation:shimmer 1.5s infinite;
-  border-radius:6px;
-}
-
-/* ── Toast ── */
-#toast{
-  position:fixed;bottom:24px;right:24px;z-index:500;
-  background:var(--text);color:white;padding:12px 20px;
-  border-radius:10px;font-size:14px;font-weight:500;
-  opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;
-}
+/* Toast */
+#toast{position:fixed;bottom:24px;right:24px;z-index:500;background:var(--text);color:white;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:500;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;}
 #toast.show{opacity:1;transform:translateY(0)}
 
-/* ── Save/back bar ── */
-.action-bar{
-  background:white;border-bottom:1px solid var(--borderlight);
-  padding:10px 24px;display:flex;align-items:center;gap:12px;
-}
-.btn-back{
-  display:flex;align-items:center;gap:6px;font-size:13.5px;
-  color:var(--muted);background:none;border:none;cursor:pointer;
-  padding:6px 10px;border-radius:8px;transition:all .15s;
-}
-.btn-back:hover{background:var(--bgsection);color:var(--text)}
-.btn-save{
-  margin-left:auto;padding:7px 16px;background:white;
-  border:1.5px solid var(--border);border-radius:8px;
-  font-size:13px;font-weight:600;color:var(--muted);transition:all .15s;
-  display:flex;align-items:center;gap:6px;
-}
-.btn-save:hover{border-color:var(--amber);color:var(--amberdark)}
-.btn-save.saved{border-color:var(--green);color:var(--green);background:var(--greenbg)}
-.btn-share{
-  padding:7px 16px;background:var(--amber);
-  border:none;border-radius:8px;color:white;
-  font-size:13px;font-weight:600;transition:all .15s;
-  display:flex;align-items:center;gap:6px;
-}
-.btn-share:hover{background:var(--ambermid)}
-
-/* ── Responsive ── */
 @media(max-width:600px){
   .hero{padding:52px 16px 48px}
   .result-meta{flex-direction:column}
   .result-meta-item+.result-meta-item{border-left:none;border-top:1px solid var(--borderlight)}
   .r-inner{padding:0 16px}
   .two-col{grid-template-columns:1fr!important}
-  .action-bar .btn-back span{display:none}
+  .nav-links .nav-link:not(:last-child){display:none}
+  .nav-search-mini{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- Nav -->
 <nav id="nav">
-  <a class="nav-logo" onclick="showPage('home')">
+  <div class="nav-logo" onclick="showPage('home')">
     <span class="why">Why</span><span class="engine">Engine</span>
-  </a>
+  </div>
   <div class="nav-links">
     <button class="nav-link" onclick="filterByCategory('Books')">Books</button>
     <button class="nav-link" onclick="filterByCategory('Habits')">Habits</button>
     <button class="nav-link" onclick="filterByCategory('Skills')">Skills</button>
     <button class="nav-link" onclick="filterByCategory('Health')">Health</button>
-    <button class="nav-link" onclick="showPage('library')">
-      Library <span id="lib-count-badge"></span>
-    </button>
+    <button class="nav-link" onclick="showPage('library')">Library <span id="lib-count-badge"></span></button>
     <div class="nav-search-mini" onclick="showPage('home');setTimeout(()=>document.getElementById('main-input').focus(),100)">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       Ask a WHY…
     </div>
   </div>
-  <button class="hamburger" onclick="showPage('library')">
-    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
 </nav>
 
-<!-- ════════════════ HOME PAGE ════════════════ -->
+<!-- HOME -->
 <div id="page-home" class="page active">
   <section class="hero fade-up">
     <div class="hero-badge">✦ Curiosity-driven answers — not instructions</div>
@@ -560,7 +296,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </section>
 
-  <!-- How it works -->
   <section style="background:white;border-top:1px solid var(--borderlight);padding:60px 24px">
     <div style="max-width:880px;margin:0 auto">
       <div class="section-header">
@@ -591,8 +326,7 @@ a{text-decoration:none;color:inherit}
     </div>
   </section>
 
-  <!-- Saved / Recent WHYs -->
-  <section id="home-library" style="padding:56px 24px;max-width:880px;margin:0 auto">
+  <section id="home-library" style="padding:56px 24px;max-width:880px;margin:0 auto;display:none">
     <div class="section-header">
       <h2 class="section-title">Your saved WHYs</h2>
       <span class="section-link" onclick="showPage('library')">See all →</span>
@@ -613,36 +347,23 @@ a{text-decoration:none;color:inherit}
   </footer>
 </div>
 
-<!-- ════════════════ LOADING PAGE ════════════════ -->
+<!-- LOADING -->
 <div id="loading-page">
   <div style="text-align:center;max-width:440px">
     <div class="spinner"></div>
     <h2 style="font-family:var(--serif);font-size:26px;font-weight:600;color:var(--text);margin-bottom:10px">Finding the WHY</h2>
     <p id="loading-question" style="font-size:15px;color:var(--muted);margin-bottom:36px;line-height:1.6;font-style:italic"></p>
     <div class="loading-steps">
-      <div class="loading-step" id="lstep0">
-        <div class="step-dot active" id="ldot0"></div>
-        <span style="font-size:14px;color:var(--text)">Understanding your question...</span>
-      </div>
-      <div class="loading-step dim" id="lstep1">
-        <div class="step-dot waiting" id="ldot1"></div>
-        <span style="font-size:14px;color:var(--text)">Finding what real people experienced...</span>
-      </div>
-      <div class="loading-step dim" id="lstep2">
-        <div class="step-dot waiting" id="ldot2"></div>
-        <span style="font-size:14px;color:var(--text)">Building your WHY page...</span>
-      </div>
-      <div class="loading-step dim" id="lstep3">
-        <div class="step-dot waiting" id="ldot3"></div>
-        <span style="font-size:14px;color:var(--text)">Polishing the answer...</span>
-      </div>
+      <div class="loading-step" id="lstep0"><div class="step-dot active" id="ldot0"></div><span style="font-size:14px;color:var(--text)">Understanding your question...</span></div>
+      <div class="loading-step dim" id="lstep1"><div class="step-dot waiting" id="ldot1"></div><span style="font-size:14px;color:var(--text)">Finding what real people experienced...</span></div>
+      <div class="loading-step dim" id="lstep2"><div class="step-dot waiting" id="ldot2"></div><span style="font-size:14px;color:var(--text)">Building your WHY page...</span></div>
+      <div class="loading-step dim" id="lstep3"><div class="step-dot waiting" id="ldot3"></div><span style="font-size:14px;color:var(--text)">Polishing the answer...</span></div>
     </div>
   </div>
 </div>
 
-<!-- ════════════════ RESULT PAGE ════════════════ -->
+<!-- RESULT -->
 <div id="page-result" class="page">
-  <!-- Action bar -->
   <div class="action-bar">
     <button class="btn-back" onclick="showPage('home')">
       <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
@@ -657,16 +378,14 @@ a{text-decoration:none;color:inherit}
       Share
     </button>
   </div>
-
   <div id="result-content"></div>
-
   <footer class="site-footer">
     <div class="footer-logo"><span class="why">Why</span><span class="engine">Engine</span></div>
     <p class="footer-sub">Curiosity-driven answers. Not instructions — understanding.</p>
   </footer>
 </div>
 
-<!-- ════════════════ LIBRARY PAGE ════════════════ -->
+<!-- LIBRARY -->
 <div id="page-library" class="page">
   <div class="lib-hero fade-up">
     <div style="max-width:880px;margin:0 auto">
@@ -675,13 +394,11 @@ a{text-decoration:none;color:inherit}
       <p style="margin-top:8px">Every answer you've generated, organised and searchable.</p>
     </div>
   </div>
-
   <div style="max-width:880px;margin:0 auto;padding:40px 24px">
     <div class="lib-search">
       <input id="lib-search-input" placeholder="Search your WHYs..." oninput="renderLibrary()" />
       <button class="search-submit" onclick="showPage('home')" style="padding:11px 20px">+ New WHY</button>
     </div>
-
     <div class="cat-pills" id="lib-cat-pills">
       <button class="cat-pill active" data-cat="" onclick="setLibCat(this)">All</button>
       <button class="cat-pill" data-cat="Books" onclick="setLibCat(this)">Books</button>
@@ -691,22 +408,60 @@ a{text-decoration:none;color:inherit}
       <button class="cat-pill" data-cat="Tech" onclick="setLibCat(this)">Tech</button>
       <button class="cat-pill" data-cat="Other" onclick="setLibCat(this)">Other</button>
     </div>
-
     <p class="lib-count" id="lib-count"></p>
     <div class="why-grid" id="lib-grid"></div>
   </div>
-
   <footer class="site-footer">
     <div class="footer-logo"><span class="why">Why</span><span class="engine">Engine</span></div>
     <p class="footer-sub">Curiosity-driven answers. Not instructions — understanding.</p>
   </footer>
 </div>
 
-<!-- Toast -->
 <div id="toast"></div>
 
 <script>
-// ── State ──────────────────────────────────────────────────────────────────
+const SYSTEM_PROMPT = `You are WhyEngine — a curiosity-driven assistant helping people discover WHY they should read, do, or try something. Write like a warm, knowledgeable friend.
+
+Return ONLY valid JSON. No markdown. No backticks. No extra text. Exact structure:
+{
+  "topic": "2-5 word topic name",
+  "shortAnswer": "70-100 word paragraph answering WHY immediately. Warm, human, use 'you'. End with: 'If that resonates, keep reading.'",
+  "worthItFor": "3 types of people comma-separated",
+  "timeToChange": "Realistic timeline e.g. '2-4 weeks'",
+  "takeaways": ["concrete benefit 1","concrete benefit 2","concrete benefit 3"],
+  "whatOthersSay": [
+    {"quote": "Short compelling quote under 18 words","source": "Source name","annotation": "2-4 word context"},
+    {"quote": "Different angle under 18 words","source": "Another source","annotation": "2-4 word context"},
+    {"quote": "Honest third perspective under 18 words","source": "Third source","annotation": "2-4 word context"}
+  ],
+  "realOutcomes": [
+    {"person": "Specific person e.g. 'A 28-year-old designer in Mumbai'","story": "2-3 specific believable sentences of what changed"},
+    {"person": "Different person type","story": "2-3 different specific sentences"},
+    {"person": "Third person type","story": "2-3 sentences"}
+  ],
+  "howTo": {
+    "steps": ["Step 1 specific advice","Step 2","Step 3","Step 4","Step 5"],
+    "starterRoutine": ["Checklist item 1","item 2","item 3","item 4","item 5"],
+    "mistakesToAvoid": ["Specific mistake 1","Mistake 2","Mistake 3"]
+  },
+  "whenToDo": [
+    {"scenario": "Life moment","example": "specific 1-sentence example"},
+    {"scenario": "Another situation","example": "specific example"},
+    {"scenario": "Third situation","example": "specific example"},
+    {"scenario": "Fourth situation","example": "specific example"}
+  ],
+  "whatWillChange": [
+    {"change": "Specific measurable change","timeframe": "e.g. '2-3 weeks'"},
+    {"change": "Second change","timeframe": "e.g. '1 month'"},
+    {"change": "Third change","timeframe": "e.g. '3-4 weeks'"},
+    {"change": "Fourth change","timeframe": "e.g. '6-8 weeks'"},
+    {"change": "Fifth change","timeframe": "e.g. '3 months'"}
+  ],
+  "verdict": "2-3 sentence warm honest close. Address one common doubt. End with one concrete action they can take today.",
+  "relatedTopics": ["Related topic 1","Related topic 2","Related topic 3","Related topic 4","Related topic 5"]
+}
+Be specific, warm, never generic. Use real-feeling details.`;
+
 let currentResult = null;
 let currentQuestion = '';
 let selectedCat = '';
@@ -714,502 +469,266 @@ let libCat = '';
 let loadingTimer = null;
 let loadingStep = 0;
 
-// ── Storage ────────────────────────────────────────────────────────────────
-function getSaved(){
-  try{ return JSON.parse(localStorage.getItem('whyengine_library')||'[]'); }
-  catch(e){ return []; }
-}
-function setSaved(arr){
-  localStorage.setItem('whyengine_library', JSON.stringify(arr));
-  updateLibBadge();
-}
-function updateLibBadge(){
-  const arr = getSaved();
-  const el = document.getElementById('lib-count-badge');
-  if(el) el.textContent = arr.length > 0 ? ` (${arr.length})` : '';
-}
+function getSaved(){try{return JSON.parse(localStorage.getItem('whyengine_v2')||'[]')}catch(e){return[]}}
+function setSaved(arr){localStorage.setItem('whyengine_v2',JSON.stringify(arr));updateLibBadge()}
+function updateLibBadge(){const arr=getSaved();const el=document.getElementById('lib-count-badge');if(el)el.textContent=arr.length>0?` (${arr.length})`:''}
 
-// ── Navigation ──────────────────────────────────────────────────────────────
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('loading-page').classList.remove('active');
-  const page = document.getElementById('page-'+name);
+  const page=document.getElementById('page-'+name);
   if(page){
     page.classList.add('active');
-    page.classList.add('fade-up');
-    setTimeout(()=>page.classList.remove('fade-up'),500);
     window.scrollTo({top:0,behavior:'smooth'});
-    if(name==='library') renderLibrary();
-    if(name==='home') renderHomeGrid();
+    if(name==='library')renderLibrary();
+    if(name==='home')renderHomeGrid();
   }
 }
 function showLoading(q){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const lp = document.getElementById('loading-page');
+  const lp=document.getElementById('loading-page');
   lp.classList.add('active');
-  document.getElementById('loading-question').textContent = '"'+q+'"';
-  loadingStep = 0;
-  updateLoadingStep(0);
+  document.getElementById('loading-question').textContent='"'+q+'"';
+  loadingStep=0;updateLoadingStep(0);
   window.scrollTo({top:0,behavior:'smooth'});
-  loadingTimer = setInterval(()=>{
-    loadingStep = Math.min(loadingStep+1, 3);
-    updateLoadingStep(loadingStep);
-  }, 2000);
+  loadingTimer=setInterval(()=>{loadingStep=Math.min(loadingStep+1,3);updateLoadingStep(loadingStep)},2200);
 }
 function updateLoadingStep(s){
   for(let i=0;i<4;i++){
-    const step = document.getElementById('lstep'+i);
-    const dot = document.getElementById('ldot'+i);
-    if(!step||!dot) continue;
-    if(i<s){ step.classList.remove('dim'); dot.className='step-dot done'; dot.textContent='✓'; }
-    else if(i===s){ step.classList.remove('dim'); dot.className='step-dot active'; dot.textContent=''; }
-    else{ step.classList.add('dim'); dot.className='step-dot waiting'; dot.textContent=''; }
+    const step=document.getElementById('lstep'+i);
+    const dot=document.getElementById('ldot'+i);
+    if(!step||!dot)continue;
+    if(i<s){step.classList.remove('dim');dot.className='step-dot done';dot.textContent='✓'}
+    else if(i===s){step.classList.remove('dim');dot.className='step-dot active';dot.textContent=''}
+    else{step.classList.add('dim');dot.className='step-dot waiting';dot.textContent=''}
   }
 }
-function stopLoading(){
-  if(loadingTimer){ clearInterval(loadingTimer); loadingTimer=null; }
-  document.getElementById('loading-page').classList.remove('active');
+function stopLoading(){if(loadingTimer){clearInterval(loadingTimer);loadingTimer=null}document.getElementById('loading-page').classList.remove('active')}
+
+function selectCat(btn){document.querySelectorAll('.search-cat').forEach(b=>b.classList.remove('active'));btn.classList.add('active');selectedCat=btn.dataset.cat}
+function askExample(q){document.getElementById('main-input').value=q;handleSearch()}
+function filterByCategory(cat){libCat=cat;showPage('library');setTimeout(()=>{document.querySelectorAll('#lib-cat-pills .cat-pill').forEach(b=>b.classList.toggle('active',b.dataset.cat===cat));renderLibrary()},100)}
+function handleSearch(){const q=document.getElementById('main-input').value.trim();if(q)generateWhy(q)}
+
+function detectCategory(q,data){
+  if(selectedCat)return selectedCat;
+  const s=(q+' '+(data?.topic||'')).toLowerCase();
+  if(/book|read|novel|author/.test(s))return'Books';
+  if(/habit|routine|morning|daily|journal|meditat|sleep|wake/.test(s))return'Habits';
+  if(/learn|skill|language|code|program|study|practice/.test(s))return'Skills';
+  if(/health|exercise|workout|diet|fast|cold shower|run|fitness|yoga/.test(s))return'Health';
+  if(/tech|ai|machine|software|startup|app/.test(s))return'Tech';
+  return'Other';
 }
 
-// ── Search ──────────────────────────────────────────────────────────────────
-function selectCat(btn){
-  document.querySelectorAll('.search-cat').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  selectedCat = btn.dataset.cat;
-}
-function askExample(q){
-  document.getElementById('main-input').value = q;
-  handleSearch();
-}
-function filterByCategory(cat){
-  libCat = cat;
-  showPage('library');
-  setTimeout(()=>{
-    document.querySelectorAll('#lib-cat-pills .cat-pill').forEach(b=>{
-      b.classList.toggle('active', b.dataset.cat===cat);
-    });
-    renderLibrary();
-  },100);
-}
-function handleSearch(){
-  const q = document.getElementById('main-input').value.trim();
-  if(!q) return;
-  generateWhy(q);
-}
-
-// ── Category detection ──────────────────────────────────────────────────────
-function detectCategory(q, data){
-  if(selectedCat) return selectedCat;
-  const ql = (q||'').toLowerCase();
-  const topic = (data?.topic||'').toLowerCase();
-  const combined = ql+' '+topic;
-  if(/\bbook|read|novel|author|chapter\b/.test(combined)) return 'Books';
-  if(/\bhabit|routine|morning|daily|every day|journal|meditation|meditat|sleep|wake\b/.test(combined)) return 'Habits';
-  if(/\blearn|skill|language|code|program|study|practice|instrument\b/.test(combined)) return 'Skills';
-  if(/\bhealth|exercise|workout|diet|fast|cold shower|run|fitness|yoga|mental\b/.test(combined)) return 'Health';
-  if(/\btech|ai|machine|software|startup|app|internet\b/.test(combined)) return 'Tech';
-  return 'Other';
-}
-
-// ── AI Generation ───────────────────────────────────────────────────────────
 async function generateWhy(question){
-  currentQuestion = question;
+  currentQuestion=question;
   showLoading(question);
-
-  const SYSTEM = `You are WhyEngine — a curiosity-driven assistant helping people discover WHY they should read, do, or try something. Write like a warm, knowledgeable friend who genuinely wants to help.
-
-Return ONLY valid JSON with no markdown, no backticks, no preamble. Exact structure:
-{
-  "topic": "2-5 word topic name",
-  "shortAnswer": "70-100 word paragraph answering WHY immediately. Warm, human, personal tone. Use 'you' not 'one'. End with: 'If that resonates, keep reading.'",
-  "worthItFor": "3 types of people, comma-separated, e.g. 'knowledge workers, students, creators'",
-  "timeToChange": "Realistic timeline, e.g. '2-4 weeks'",
-  "takeaways": ["concrete specific benefit 1","concrete specific benefit 2","concrete specific benefit 3"],
-  "whatOthersSay": [
-    {"quote": "Compelling short quote under 18 words","source": "Source name","annotation": "2-4 word helpful context"},
-    {"quote": "Different angle quote under 18 words","source": "Another source","annotation": "2-4 word context"},
-    {"quote": "Honest third perspective under 18 words","source": "Third source","annotation": "2-4 word context"}
-  ],
-  "realOutcomes": [
-    {"person": "Specific person description e.g. 'A 28-year-old designer in Mumbai'","story": "2-3 specific believable sentences of what changed for them, with concrete details"},
-    {"person": "Different type of person","story": "2-3 different specific sentences"},
-    {"person": "Third type of person","story": "2-3 more sentences"}
-  ],
-  "howTo": {
-    "steps": ["Step 1 with specific actionable advice","Step 2","Step 3","Step 4","Step 5"],
-    "starterRoutine": ["Specific checklist item 1","item 2","item 3","item 4","item 5"],
-    "mistakesToAvoid": ["Specific mistake 1 with why","Mistake 2","Mistake 3"]
-  },
-  "whenToDo": [
-    {"scenario": "Life moment or situation","example": "specific 1-sentence example of this moment"},
-    {"scenario": "Another situation","example": "specific example"},
-    {"scenario": "Third situation","example": "specific example"},
-    {"scenario": "Fourth situation","example": "specific example"}
-  ],
-  "whatWillChange": [
-    {"change": "Specific measurable or feelable change description","timeframe": "e.g. '2-3 weeks'"},
-    {"change": "Second specific change","timeframe": "e.g. '1 month'"},
-    {"change": "Third specific change","timeframe": "e.g. '3-4 weeks'"},
-    {"change": "Fourth specific change","timeframe": "e.g. '6-8 weeks'"},
-    {"change": "Fifth specific change","timeframe": "e.g. '3 months'"}
-  ],
-  "verdict": "2-3 sentence warm honest close. Address one common doubt or objection people have. End with a concrete single encouraging action they can take today.",
-  "relatedTopics": ["Related topic phrase 1","Related topic phrase 2","Related topic phrase 3","Related topic phrase 4","Related topic phrase 5"]
-}
-Be specific, warm, human — never generic. Use real-feeling details. Avoid clichés.`;
-
   try{
-    const res = await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('/.netlify/functions/ask-why',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:2500,
-        system:SYSTEM,
-        messages:[{role:'user',content:question}]
-      })
+      body:JSON.stringify({question,system:SYSTEM_PROMPT})
     });
-    if(!res.ok) throw new Error('API '+res.status);
-    const data = await res.json();
-    const raw = data.content?.[0]?.text||'';
-    const clean = raw.replace(/```json\n?|```/g,'').trim();
-    const parsed = JSON.parse(clean);
+    if(!res.ok){
+      const err=await res.json().catch(()=>({}));
+      throw new Error(err.error||'Server error '+res.status);
+    }
+    const data=await res.json();
+    const raw=data.text||'';
+    const clean=raw.replace(/```json\n?|```/g,'').trim();
+    const parsed=JSON.parse(clean);
     stopLoading();
-    currentResult = parsed;
-    currentResult._question = question;
-    currentResult._cat = detectCategory(question, parsed);
-    currentResult._id = Date.now().toString();
-    currentResult._saved = false;
-    renderResult(parsed, question);
+    currentResult=parsed;
+    currentResult._question=question;
+    currentResult._cat=detectCategory(question,parsed);
+    currentResult._id=Date.now().toString();
+    currentResult._saved=false;
+    currentResult._savedAt=null;
+    renderResult(parsed,question);
     showPage('result');
-    document.getElementById('save-btn').className = 'btn-save';
-    document.getElementById('save-btn').innerHTML = `<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17,21 17,13 7,13 7,21"/><polyline points="7,3 7,8 15,8"/></svg> Save WHY`;
+    const btn=document.getElementById('save-btn');
+    btn.className='btn-save';
+    btn.innerHTML='<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17,21 17,13 7,13 7,21"/><polyline points="7,3 7,8 15,8"/></svg> Save WHY';
   }catch(err){
     stopLoading();
     console.error(err);
-    showToast('Something went wrong. Please try again.');
+    showToast('Something went wrong: '+err.message+'. Please try again.');
     showPage('home');
   }
 }
 
-// ── Render Result ────────────────────────────────────────────────────────────
-function renderResult(r, question){
-  const el = document.getElementById('result-content');
+function renderResult(r,question){
+  const el=document.getElementById('result-content');
+  const reviewsHTML=(r.whatOthersSay||[]).map(q=>`<div class="review-card"><p class="review-quote">"${q.quote}"</p><div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px"><span class="review-source">— ${q.source}</span>${q.annotation?`<span class="review-annotation">${q.annotation}</span>`:''}</div></div>`).join('');
+  const outcomesHTML=(r.realOutcomes||[]).map(o=>`<div class="outcome-card"><div class="outcome-who">${o.person}</div><p class="outcome-story">${o.story}</p></div>`).join('');
+  const stepsHTML=(r.howTo?.steps||[]).map((s,i)=>`<div class="step-row"><div class="step-num">${i+1}</div><p class="step-text">${s}</p></div>`).join('');
+  const checklistHTML=(r.howTo?.starterRoutine||[]).map(item=>`<label class="check-item"><input type="checkbox"> ${item}</label>`).join('');
+  const mistakesHTML=(r.howTo?.mistakesToAvoid||[]).map(m=>`<div class="mistake-item"><span class="mistake-x">✗</span><span>${m}</span></div>`).join('');
+  const whenHTML=(r.whenToDo||[]).map(w=>`<div class="when-card"><p class="when-scenario">${w.scenario}</p><p class="when-eg">e.g. ${w.example}</p></div>`).join('');
+  const changesHTML=(r.whatWillChange||[]).map(w=>`<div class="change-row"><div class="change-dot"></div><div class="change-text">${w.change}</div><span class="change-time">${w.timeframe}</span></div>`).join('');
+  const relatedHTML=(r.relatedTopics||[]).map(t=>`<button class="related-tag" onclick="askExample('Why should I ${t.toLowerCase()}?')">${t} →</button>`).join('');
 
-  const reviewsHTML = (r.whatOthersSay||[]).map(q=>`
-    <div class="review-card">
-      <p class="review-quote">"${q.quote}"</p>
-      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px">
-        <span class="review-source">— ${q.source}</span>
-        ${q.annotation?`<span class="review-annotation">${q.annotation}</span>`:''}
-      </div>
-    </div>`).join('');
-
-  const outcomesHTML = (r.realOutcomes||[]).map(o=>`
-    <div class="outcome-card">
-      <div class="outcome-who">${o.person}</div>
-      <p class="outcome-story">${o.story}</p>
-    </div>`).join('');
-
-  const stepsHTML = (r.howTo?.steps||[]).map((s,i)=>`
-    <div class="step-row">
-      <div class="step-num">${i+1}</div>
-      <p class="step-text">${s}</p>
-    </div>`).join('');
-
-  const checklistHTML = (r.howTo?.starterRoutine||[]).map(item=>`
-    <label class="check-item">
-      <input type="checkbox"> ${item}
-    </label>`).join('');
-
-  const mistakesHTML = (r.howTo?.mistakesToAvoid||[]).map(m=>`
-    <div class="mistake-item">
-      <span class="mistake-x">✗</span><span>${m}</span>
-    </div>`).join('');
-
-  const whenHTML = (r.whenToDo||[]).map(w=>`
-    <div class="when-card">
-      <p class="when-scenario">${w.scenario}</p>
-      <p class="when-eg">e.g. ${w.example}</p>
-    </div>`).join('');
-
-  const changesHTML = (r.whatWillChange||[]).map(w=>`
-    <div class="change-row">
-      <div class="change-dot"></div>
-      <div class="change-text">${w.change}</div>
-      <span class="change-time">${w.timeframe}</span>
-    </div>`).join('');
-
-  const relatedHTML = (r.relatedTopics||[]).map(topic=>`
-    <button class="related-tag" onclick="askExample('Why should I ${topic.toLowerCase()}?')">${topic} →</button>
-  `).join('');
-
-  el.innerHTML = `
-    <!-- Hero -->
+  el.innerHTML=`
     <div class="result-hero fade-up">
       <div style="max-width:800px;margin:0 auto">
         <p class="result-label">WhyEngine Answer</p>
         <h1 class="result-title">${question}</h1>
         <div class="result-meta">
-          <div class="result-meta-item">
-            <span class="meta-label">Worth it for</span>
-            <span class="meta-val">✅ ${r.worthItFor||'everyone curious'}</span>
-          </div>
-          <div class="result-meta-item">
-            <span class="meta-label">Time to notice change</span>
-            <span class="meta-val">⏱ ${r.timeToChange||'2–4 weeks'}</span>
-          </div>
-          <div class="result-meta-item">
-            <span class="meta-label">Topic</span>
-            <span class="meta-val">${r.topic||'—'}</span>
-          </div>
+          <div class="result-meta-item"><span class="meta-label">Worth it for</span><span class="meta-val">✅ ${r.worthItFor||'everyone curious'}</span></div>
+          <div class="result-meta-item"><span class="meta-label">Time to notice change</span><span class="meta-val">⏱ ${r.timeToChange||'2–4 weeks'}</span></div>
+          <div class="result-meta-item"><span class="meta-label">Topic</span><span class="meta-val">${r.topic||'—'}</span></div>
         </div>
       </div>
     </div>
-
-    <!-- Short answer + takeaways -->
     <div style="border-top:1px solid var(--borderlight);padding:40px 0">
       <div class="r-inner">
-        <div class="pull-quote">
-          <p>"${r.shortAnswer}"</p>
-        </div>
-        ${(r.takeaways||[]).map(t=>`
-          <div class="takeaway">
-            <span class="takeaway-arrow">→</span>
-            <p>${t}</p>
-          </div>`).join('')}
+        <div class="pull-quote"><p>"${r.shortAnswer}"</p></div>
+        ${(r.takeaways||[]).map(t=>`<div class="takeaway"><span class="takeaway-arrow">→</span><p>${t}</p></div>`).join('')}
       </div>
     </div>
-
-    <!-- What others say -->
     <div class="r-section alt">
       <div class="r-inner">
-        <div class="r-shead">
-          <span class="r-num">1</span>
-          <h2>What others are saying</h2>
-        </div>
+        <div class="r-shead"><span class="r-num">1</span><h2>What others are saying</h2></div>
         ${reviewsHTML}
       </div>
     </div>
-
-    <!-- Real outcomes -->
     <div class="r-section warm">
       <div class="r-inner">
-        <div class="r-shead">
-          <span class="r-num">2</span>
-          <h2>What changed after doing this</h2>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px" class="two-col">
-          ${outcomesHTML}
-        </div>
+        <div class="r-shead"><span class="r-num">2</span><h2>What changed after doing this</h2></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px" class="two-col">${outcomesHTML}</div>
       </div>
     </div>
-
-    <!-- How to -->
     <div class="r-section">
       <div class="r-inner">
-        <div class="r-shead">
-          <span class="r-num">3</span>
-          <h2>How to actually do this</h2>
-        </div>
+        <div class="r-shead"><span class="r-num">3</span><h2>How to actually do this</h2></div>
         <h3 style="font-family:var(--serif);font-size:16px;color:var(--text);margin-bottom:18px;font-weight:600">Step by step</h3>
         ${stepsHTML}
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:28px" class="two-col">
-          <div class="checklist-box">
-            <h3>✓ Starter routine</h3>
-            ${checklistHTML}
-          </div>
-          <div class="mistake-box">
-            <h3>✗ Mistakes to avoid</h3>
-            ${mistakesHTML}
-          </div>
+          <div class="checklist-box"><h3>✓ Starter routine</h3>${checklistHTML}</div>
+          <div class="mistake-box"><h3>✗ Mistakes to avoid</h3>${mistakesHTML}</div>
         </div>
       </div>
     </div>
-
-    <!-- When -->
     <div class="r-section alt">
       <div class="r-inner">
-        <div class="r-shead">
-          <span class="r-num">4</span>
-          <h2>When this fits best</h2>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px" class="two-col">
-          ${whenHTML}
-        </div>
+        <div class="r-shead"><span class="r-num">4</span><h2>When this fits best</h2></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px" class="two-col">${whenHTML}</div>
       </div>
     </div>
-
-    <!-- What will change -->
     <div class="r-section">
       <div class="r-inner">
-        <div class="r-shead">
-          <span class="r-num">5</span>
-          <h2>What will change in your life</h2>
-        </div>
+        <div class="r-shead"><span class="r-num">5</span><h2>What will change in your life</h2></div>
         ${changesHTML}
       </div>
     </div>
-
-    <!-- Verdict -->
     <div class="verdict-box">
       <div class="verdict-inner">
         <p style="font-size:11.5px;color:var(--amber);font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.8px;font-style:normal;font-family:var(--sans)">Final verdict</p>
         <p>${r.verdict}</p>
       </div>
     </div>
-
-    <!-- Related -->
     <div class="related-section">
       <div class="related-inner">
-        <div class="section-header" style="margin-bottom:18px">
-          <h2 class="section-title">Related WHYs to explore</h2>
-        </div>
+        <div class="section-header" style="margin-bottom:18px"><h2 class="section-title">Related WHYs to explore</h2></div>
         <div class="related-tags">${relatedHTML}</div>
         <div class="new-search-box">
           <h3>Ask another WHY</h3>
           <div class="new-search-row">
-            <input id="new-q-input" placeholder="Why should I try intermittent fasting?"
-              onkeydown="if(event.key==='Enter'){const v=this.value.trim();if(v)generateWhy(v)}" />
+            <input id="new-q-input" placeholder="Why should I try intermittent fasting?" onkeydown="if(event.key==='Enter'){const v=this.value.trim();if(v)generateWhy(v)}"/>
             <button onclick="const v=document.getElementById('new-q-input').value.trim();if(v)generateWhy(v)">Ask →</button>
           </div>
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
-// ── Save ─────────────────────────────────────────────────────────────────────
 function saveCurrentResult(){
-  if(!currentResult) return;
-  const saved = getSaved();
-  const exists = saved.find(s=>s._id===currentResult._id);
-  if(exists){
-    showToast('Already saved!');
-    return;
-  }
-  currentResult._saved = true;
-  currentResult._savedAt = new Date().toISOString();
+  if(!currentResult)return;
+  const saved=getSaved();
+  if(saved.find(s=>s._id===currentResult._id)){showToast('Already saved!');return}
+  currentResult._saved=true;
+  currentResult._savedAt=new Date().toISOString();
   saved.unshift(currentResult);
   setSaved(saved);
-  const btn = document.getElementById('save-btn');
-  btn.className = 'btn-save saved';
-  btn.innerHTML = `<svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17,21 17,13 7,13 7,21" stroke="white" fill="none" stroke-width="2"/></svg> Saved`;
+  const btn=document.getElementById('save-btn');
+  btn.className='btn-save saved';
+  btn.innerHTML='✓ Saved';
   showToast('WHY saved to your library!');
 }
 
 function loadSavedResult(id){
-  const saved = getSaved();
-  const item = saved.find(s=>s._id===id);
-  if(!item) return;
-  currentResult = item;
-  currentQuestion = item._question;
-  renderResult(item, item._question);
+  const saved=getSaved();
+  const item=saved.find(s=>s._id===id);
+  if(!item)return;
+  currentResult=item;currentQuestion=item._question;
+  renderResult(item,item._question);
   showPage('result');
-  const btn = document.getElementById('save-btn');
-  btn.className = 'btn-save saved';
-  btn.innerHTML = `<svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/></svg> Saved`;
+  const btn=document.getElementById('save-btn');
+  btn.className='btn-save saved';
+  btn.innerHTML='✓ Saved';
 }
 
-// ── Copy link ────────────────────────────────────────────────────────────────
 function copyLink(){
-  try{
-    navigator.clipboard.writeText(window.location.href);
-    showToast('Link copied to clipboard!');
-  }catch(e){
-    showToast('Tip: bookmark this page to save it!');
-  }
+  try{navigator.clipboard.writeText(window.location.href);showToast('Link copied!')}
+  catch(e){showToast('Bookmark this page to save it!')}
 }
 
-// ── Render Library ────────────────────────────────────────────────────────────
 function setLibCat(btn){
   document.querySelectorAll('#lib-cat-pills .cat-pill').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  libCat = btn.dataset.cat;
-  renderLibrary();
+  btn.classList.add('active');libCat=btn.dataset.cat;renderLibrary();
 }
 
 function renderLibrary(){
-  const saved = getSaved();
-  const search = (document.getElementById('lib-search-input')?.value||'').toLowerCase();
-  const filtered = saved.filter(item=>{
-    const matchCat = !libCat || item._cat===libCat;
-    const matchSearch = !search ||
-      (item._question||'').toLowerCase().includes(search) ||
-      (item.topic||'').toLowerCase().includes(search) ||
-      (item.shortAnswer||'').toLowerCase().includes(search);
-    return matchCat && matchSearch;
+  const saved=getSaved();
+  const search=(document.getElementById('lib-search-input')?.value||'').toLowerCase();
+  const filtered=saved.filter(item=>{
+    const matchCat=!libCat||item._cat===libCat;
+    const matchSearch=!search||(item._question||'').toLowerCase().includes(search)||(item.topic||'').toLowerCase().includes(search)||(item.shortAnswer||'').toLowerCase().includes(search);
+    return matchCat&&matchSearch;
   });
-
-  const countEl = document.getElementById('lib-count');
-  if(countEl) countEl.textContent = `${filtered.length} WHY${filtered.length!==1?'s':''}`;
-
-  const grid = document.getElementById('lib-grid');
-  if(!grid) return;
-
+  const countEl=document.getElementById('lib-count');
+  if(countEl)countEl.textContent=`${filtered.length} WHY${filtered.length!==1?'s':''}`;
+  const grid=document.getElementById('lib-grid');
+  if(!grid)return;
   if(filtered.length===0){
-    const isFull = saved.length===0;
-    grid.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">${isFull?'🔍':'📭'}</div>
-        <h3 class="empty-title">${isFull?'No WHYs yet':'Nothing matches'}</h3>
-        <p class="empty-sub">${isFull
-          ? 'Start exploring! Ask any question and your answers will be saved here.'
-          : 'Try a different search term or category.'}</p>
-        ${isFull?`<button class="search-submit" style="margin:0 auto" onclick="showPage('home')">Ask your first WHY</button>`:''}
-      </div>`;
+    const isFull=saved.length===0;
+    grid.innerHTML=`<div class="empty-state"><div class="empty-icon">${isFull?'🔍':'📭'}</div><h3 class="empty-title">${isFull?'No WHYs yet':'Nothing matches'}</h3><p class="empty-sub">${isFull?'Start exploring! Your saved answers will appear here.':'Try a different search or category.'}</p>${isFull?`<button class="search-submit" style="margin:0 auto" onclick="showPage('home')">Ask your first WHY</button>`:''}</div>`;
     return;
   }
-
-  grid.innerHTML = filtered.map(item=>`
+  grid.innerHTML=filtered.map(item=>`
     <div class="why-card" onclick="loadSavedResult('${item._id}')">
       <span class="why-card-cat">${item._cat||'Other'}</span>
       <h3 class="why-card-q">${item._question||item.topic}</h3>
       <p class="why-card-preview">${item.shortAnswer||''}</p>
-      <div class="why-card-meta">
-        <span class="why-card-badge">✅ ${item.worthItFor||''}</span>
-        <span class="why-card-arrow">→</span>
-      </div>
+      <div class="why-card-meta"><span class="why-card-badge">✅ ${item.worthItFor||''}</span><span class="why-card-arrow">→</span></div>
     </div>`).join('');
 }
 
 function renderHomeGrid(){
-  const saved = getSaved().slice(0,6);
-  const grid = document.getElementById('home-why-grid');
-  if(!grid) return;
-
-  const section = document.getElementById('home-library');
-
-  if(saved.length===0){
-    if(section) section.style.display='none';
-    return;
-  }
-  if(section) section.style.display='block';
-
-  grid.innerHTML = `<div class="why-grid">${saved.map(item=>`
+  const saved=getSaved().slice(0,6);
+  const section=document.getElementById('home-library');
+  const grid=document.getElementById('home-why-grid');
+  if(!grid||!section)return;
+  if(saved.length===0){section.style.display='none';return}
+  section.style.display='block';
+  grid.innerHTML=`<div class="why-grid">${saved.map(item=>`
     <div class="why-card" onclick="loadSavedResult('${item._id}')">
       <span class="why-card-cat">${item._cat||'Other'}</span>
       <h3 class="why-card-q">${item._question||item.topic}</h3>
       <p class="why-card-preview">${item.shortAnswer||''}</p>
-      <div class="why-card-meta">
-        <span class="why-card-badge">⏱ ${item.timeToChange||''}</span>
-        <span class="why-card-arrow">→</span>
-      </div>
-    </div>`).join('')}
-  </div>`;
+      <div class="why-card-meta"><span class="why-card-badge">⏱ ${item.timeToChange||''}</span><span class="why-card-arrow">→</span></div>
+    </div>`).join('')}</div>`;
 }
 
-// ── Toast ────────────────────────────────────────────────────────────────────
 let toastTimer;
 function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=>t.classList.remove('show'), 2800);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-// ── Init ─────────────────────────────────────────────────────────────────────
 updateLibBadge();
 renderHomeGrid();
 document.getElementById('main-input').focus();
